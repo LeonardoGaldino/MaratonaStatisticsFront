@@ -9,18 +9,21 @@ export class APIService {
     constructor(private http: HttpClient) { }
 
     public async getCompetitors() {
-        let data = await this.http.get(API_ROUTES.allCompetitors).toPromise();
-        return data;
+        let data: any = await this.http.get(API_ROUTES.allCompetitors).toPromise();
+        return data.content;
     }
 
     public async getCompetitorData(handle) {
-        let data = await this.http.get(API_ROUTES.singleCompetitor(handle)).toPromise();
-        return data;
+        let data: any = await this.http.get(API_ROUTES.singleCompetitor(handle)).toPromise();
+        return data.content;
     }
 
     public async getCompetitorRatings(handle) {
-        let data = await this.http.get(API_ROUTES.competitorRatings(handle)).toPromise();
-        return data;
+        let data: any = await this.http.get(API_ROUTES.competitorRatings(handle)).toPromise();
+        return {
+            'data': data.content,
+            'handle': handle
+        };
     }
 
 }
