@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material.module';
 
@@ -10,6 +11,7 @@ import { HomeComponent } from './HomeComponent/homeComponent';
 import { StatsCodeforces } from './StatsCodeforces/statsCodeforces';
 import { routes } from './app.routes';
 
+import { APIService } from './Services/api.service';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,10 @@ import { routes } from './app.routes';
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [APIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
