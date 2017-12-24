@@ -1,19 +1,23 @@
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatSidenavModule } from '@angular/material';
+import { MatButtonModule, 
+         MatCheckboxModule, 
+         MatSidenavModule,
+         MatDatepickerModule,
+         MatFormFieldModule,
+         MatNativeDateModule,
+         MatInputModule } from '@angular/material';
 
 @NgModule({
-    imports: [
-        NoopAnimationsModule,
-        MatButtonModule,
-        MatCheckboxModule,
-        MatSidenavModule
-    ],
     exports: [
         NoopAnimationsModule,
         MatButtonModule,
         MatCheckboxModule,
-        MatSidenavModule  
+        MatSidenavModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatNativeDateModule,
+        MatInputModule
     ]
 })
 export class MaterialModule { }

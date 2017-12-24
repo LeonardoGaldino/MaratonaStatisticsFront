@@ -11,6 +11,8 @@ import { HomeComponent } from './HomeComponent/homeComponent';
 import { StatsCodeforces } from './StatsCodeforces/statsCodeforces';
 import { routes } from './app.routes';
 
+import { RatingComparisonCF } from './StatsCodeforces/RatingComparison/ratingComparison';
+
 import { APIService } from './Services/api.service';
 
 @NgModule({
@@ -18,7 +20,8 @@ import { APIService } from './Services/api.service';
     AppComponent,
     SidenavComponent,
     HomeComponent,
-    StatsCodeforces
+    StatsCodeforces,
+    RatingComparisonCF
   ],
   imports: [
     BrowserModule,

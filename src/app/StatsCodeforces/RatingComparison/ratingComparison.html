@@ -1,0 +1,19 @@
+<div class="chart-container chart-wrapper">
+    <canvas id="chart-canvas"></canvas>
+
+    <mat-form-field>
+        <input matInput (dateChange)="updateStartDate($event)" [matDatepicker]="pickerStart" placeholder="Data inicial">
+        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart></mat-datepicker>
+
+
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput (dateChange)="updateEndDate($event)" [matDatepicker]="pickerEnd" placeholder="Data final">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+    </mat-form-field>
+
+</div>
+

@@ -1,10 +1,9 @@
 <mat-sidenav-container>
-    <mat-sidenav position="start" opened disableClose>
+    <mat-sidenav position="start" opened disableClose fixedInViewport>
         <a *ngFor="let link of navigationLinks" [routerLink]="link.url" mat-button class="sidenav-link">
             {{ link.displayName }}
         </a> 
     </mat-sidenav>
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
 </mat-sidenav-container>
+
+<router-outlet></router-outlet>
