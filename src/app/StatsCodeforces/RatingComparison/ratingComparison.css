@@ -1,5 +1,18 @@
 .chart-wrapper {
     position: relative; 
-    height: 500px; 
     width: calc(100vw - 280px);
+}
+
+mat-card {
+    margin-left: 20px;
+    background-color: #ddeae4;
+    margin-bottom: 40px;
+}
+
+mat-card-actions {
+    margin-left: 20px;
+}
+
+.card-text {
+    color: #0C3C26;
 }

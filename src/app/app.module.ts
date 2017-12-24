@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material.module';
 
+import { MAT_DATE_LOCALE } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './SidenavComponent/sidenavComponent';
 import { HomeComponent } from './HomeComponent/homeComponent';
@@ -29,7 +31,10 @@ import { APIService } from './Services/api.service';
     HttpClientModule,
     MaterialModule
   ],
-  providers: [APIService],
+  providers: [
+    APIService,
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

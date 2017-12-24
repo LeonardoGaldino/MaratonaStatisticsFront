@@ -9,14 +9,13 @@ import { Chart } from 'chart.js';
     templateUrl: 'ratingComparison.html',
     styleUrls: ['ratingComparison.css']
 }) export class RatingComparisonCF implements OnInit {
-    @ViewChild('pickerStart') pickerStart: ElementRef;
-    @ViewChild('pickerEnd') pickerEnd: ElementRef;
+
+    public componentTitle = 'Codeforces Ratings'; 
 
     private data = [];
     private chart;
     private startDate;
     private endDate;
-
     private colors = ['rgb(255, 99, 132)', 'rgb(0, 99, 132)',
                         'rgb(44, 132, 111)', 'rgb(255, 0, 11)']
 
@@ -38,7 +37,32 @@ import { Chart } from 'chart.js';
         }
     }
 
+    extractDateString(parseDate): string {
+        let dd = parseDate.getDate();
+        let mm = parseDate.getMonth()+1;
+        let yyyy = parseDate.getFullYear();
+        if(dd < 10)
+            dd = '0'+dd;
+        if(mm < 10)
+            mm = '0'+mm;
+        return dd+'/'+mm+'/'+yyyy;
+    }
+
+    updateDates(mini, maxi): void {
+        let dateMin = new Date(mini*1000);
+        let dateMax = new Date(maxi*1000);
+        let startNode: any = document.getElementById('pickerStartInput');
+        let endNode: any = document.getElementById('pickerEndInput');
+        startNode.value = this.extractDateString(dateMin);
+        endNode.value = this.extractDateString(dateMax);
+
+        this.startDate = new Date(dateMin);
+        this.endDate = new Date(dateMax);
+    }
+
     parseData(filterRankings): any {
+        let maxi = 0;
+        let mini = Number.MAX_SAFE_INTEGER;
         let datasets = this.data.map( (compData, idx) => {
             let temp;
             if(filterRankings) {
@@ -51,6 +75,8 @@ import { Chart } from 'chart.js';
             else
                 temp = compData.data;
             let data = temp.map( (contestResult) => {
+                maxi = Math.max(maxi, parseInt(contestResult.date));
+                mini = Math.min(mini, parseInt(contestResult.date));
                 return {
                     'x': new Date(parseInt(contestResult.date)*1000),
                     'y': contestResult.rating
@@ -63,7 +89,8 @@ import { Chart } from 'chart.js';
                 data: data
             };
         });
-
+        if(!filterRankings)
+            this.updateDates(mini, maxi);
         return datasets;
     }
 
@@ -75,7 +102,7 @@ import { Chart } from 'chart.js';
 
         if(this.chart)
             this.chart.destroy();
-            
+
         this.chart = new Chart(ctx, {
             type: 'line',
             data: {
