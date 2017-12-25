@@ -3,6 +3,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DataRepository } from '../../Services/data.repository';
 
 import { Chart } from 'chart.js';
+import { ChartColors } from '../../colors';
 
 @Component ({
     selector: 'rating-comparison-cf',
@@ -17,9 +18,6 @@ import { Chart } from 'chart.js';
     private chart;
     private startDate;
     private endDate;
-    private colors = ['#734488', '#492645','#9FEBEB', 
-                        '#9FEBEB', '#D5EEFF', '#78BBE6', '#1B435D',
-                        '#302939', '#50595C', '#E99B9B', '#FFD8D8'];
 
     constructor(private dataRepo: DataRepository) { }
 
@@ -86,7 +84,7 @@ import { Chart } from 'chart.js';
             });
             return {
                 'label': compData.handle,
-                borderColor: this.colors[((idx)%this.colors.length)],
+                borderColor: ChartColors[((idx)%ChartColors.length)],
                 fill: false,
                 data: data
             };

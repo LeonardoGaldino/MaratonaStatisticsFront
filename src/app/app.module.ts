@@ -18,6 +18,7 @@ import { CompetitorComparisonCF } from './StatsCodeforces/CompetitorComparison/c
 
 import { APIService } from './Services/api.service';
 import { DataRepository } from './Services/data.repository';
+import { LocationService } from './Services/location.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DataRepository } from './Services/data.repository';
   providers: [
     APIService,
     DataRepository,
+    LocationService,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]

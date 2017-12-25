@@ -8,3 +8,7 @@ mat-sidenav {
     color: white;
     font-weight: bold;
 }
+
+#codepitFuture:hover {
+    cursor: not-allowed;
+}

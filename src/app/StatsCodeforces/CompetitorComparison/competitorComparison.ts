@@ -3,6 +3,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DataRepository } from '../../Services/data.repository';
 
 import { Chart } from 'chart.js';
+import { ChartColors } from '../../colors';
 
 @Component ({
     selector: 'competitor-comparison-cf',
@@ -15,9 +16,6 @@ import { Chart } from 'chart.js';
 
     private data;
     private chart;
-    private colors = ['#734488', '#492645','#9FEBEB', 
-                    '#78BBE6', '#1B435D','#302939', 
-                    '#50595C', '#E99B9B', '#FFD8D8'];
 
     constructor(private dataRepo: DataRepository) { }
 
@@ -33,8 +31,8 @@ import { Chart } from 'chart.js';
             return {
                 label: competitor.handle,
                 data: [competitor.rating],
-                backgroundColor: this.colors[(idx%this.colors.length)],
-                hoverBackgroundColor: this.colors[(idx%this.colors.length)]
+                backgroundColor: ChartColors[(idx%ChartColors.length)],
+                hoverBackgroundColor: ChartColors[(idx%ChartColors.length)]
             }
         });
 
