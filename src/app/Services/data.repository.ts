@@ -26,8 +26,10 @@ export class DataRepository {
 
     public async getCompetitors() {
         if(this.competitors.length > 0) {
+            console.log('avoided 2');
             return this.competitors;
         }
+        console.log('fetching 2');
         let data = await this.API.getCompetitors();
         this.saveCompetitors(data);
         return data;
@@ -35,8 +37,10 @@ export class DataRepository {
 
     public async getCompetitorRatings(handle) {
         if(this.competitorRatingsStatus[handle] == DataStatus.READY) {
+            console.log('avoided 1');
             return this.competitorRatings[handle];
         }
+        console.log('fetching 1');
         let data = await this.API.getCompetitorRatings(handle);
         this.saveCompetitorRatings(handle, data);
         return data;

@@ -3,7 +3,6 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DataRepository } from '../../Services/data.repository';
 
 import { Chart } from 'chart.js';
-import { Data } from '@angular/router/src/config';
 
 @Component ({
     selector: 'rating-comparison-cf',
@@ -11,7 +10,8 @@ import { Data } from '@angular/router/src/config';
     styleUrls: ['ratingComparison.css']
 }) export class RatingComparisonCF implements OnInit {
 
-    public componentTitle = 'Codeforces Ratings'; 
+    public componentTitle = 'Ratings Codeforces'; 
+    public canvasId = 'cf-rating-canvas';
 
     private data = [];
     private chart;
@@ -97,7 +97,7 @@ import { Data } from '@angular/router/src/config';
     }
 
     buildChart(filterRankings): void {
-        let canvasNode: any = document.getElementById('chart-canvas');
+        let canvasNode: any = document.getElementById(this.canvasId);
         var ctx = canvasNode.getContext('2d');
 
         let datasets = this.parseData(filterRankings);

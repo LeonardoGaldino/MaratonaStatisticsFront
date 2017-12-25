@@ -14,6 +14,7 @@ import { StatsCodeforces } from './StatsCodeforces/statsCodeforces';
 import { routes } from './app.routes';
 
 import { RatingComparisonCF } from './StatsCodeforces/RatingComparison/ratingComparison';
+import { CompetitorComparisonCF } from './StatsCodeforces/CompetitorComparison/competitorComparison';
 
 import { APIService } from './Services/api.service';
 import { DataRepository } from './Services/data.repository';
@@ -24,7 +25,8 @@ import { DataRepository } from './Services/data.repository';
     SidenavComponent,
     HomeComponent,
     StatsCodeforces,
-    RatingComparisonCF
+    RatingComparisonCF,
+    CompetitorComparisonCF
   ],
   imports: [
     BrowserModule,
