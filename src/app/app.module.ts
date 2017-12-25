@@ -16,6 +16,7 @@ import { routes } from './app.routes';
 import { RatingComparisonCF } from './StatsCodeforces/RatingComparison/ratingComparison';
 
 import { APIService } from './Services/api.service';
+import { DataRepository } from './Services/data.repository';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { APIService } from './Services/api.service';
   ],
   providers: [
     APIService,
+    DataRepository,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]

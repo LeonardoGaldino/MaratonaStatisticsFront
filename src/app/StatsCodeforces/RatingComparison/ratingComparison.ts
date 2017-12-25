@@ -1,8 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
-import { APIService } from '../../Services/api.service';
+import { DataRepository } from '../../Services/data.repository';
 
 import { Chart } from 'chart.js';
+import { Data } from '@angular/router/src/config';
 
 @Component ({
     selector: 'rating-comparison-cf',
@@ -16,10 +17,11 @@ import { Chart } from 'chart.js';
     private chart;
     private startDate;
     private endDate;
-    private colors = ['rgb(255, 99, 132)', 'rgb(0, 99, 132)',
-                        'rgb(44, 132, 111)', 'rgb(255, 0, 11)']
+    private colors = ['#734488', '#492645','#9FEBEB', 
+                        '#9FEBEB', '#D5EEFF', '#78BBE6', '#1B435D',
+                        '#302939', '#50595C', '#E99B9B', '#FFD8D8'];
 
-    constructor(private API: APIService) { }
+    constructor(private dataRepo: DataRepository) { }
 
     updateStartDate(event): void {
         this.startDate = (event.value ? new Date(event.value) : null);
@@ -84,7 +86,7 @@ import { Chart } from 'chart.js';
             });
             return {
                 'label': compData.handle,
-                borderColor: this.colors[idx],
+                borderColor: this.colors[((idx)%this.colors.length)],
                 fill: false,
                 data: data
             };
@@ -125,9 +127,9 @@ import { Chart } from 'chart.js';
     }
 
     async fetchData() {
-        let fetchedData: any = await this.API.getCompetitors();
+        let fetchedData: any = await this.dataRepo.getCompetitors();
         fetchedData.forEach( async (comp) => {
-            let competitorData: any = await this.API.getCompetitorRatings(comp.handle);
+            let competitorData: any = await this.dataRepo.getCompetitorRatings(comp.handle);
             this.data.push(competitorData);
             this.buildChart(false);
         });
