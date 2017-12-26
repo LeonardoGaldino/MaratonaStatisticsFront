@@ -1,4 +1,4 @@
-export const API_URL = 'http://localhost:8000';
+export const API_URL = 'http://67.207.87.198:8001';
 
 export const API_ROUTES = {
     'allCompetitors': API_URL + '/api/competitors',
