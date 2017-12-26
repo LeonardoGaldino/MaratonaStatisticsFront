@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 
 import { LocationService } from '../Services/location.service';
 
@@ -11,7 +11,7 @@ import { TabColors } from '../colors';
     selector: 'sidenav-component',
     templateUrl: 'sidenavComponent.html',
     styleUrls: ['sidenavComponent.css']
-}) export class SidenavComponent implements AfterViewInit {
+}) export class SidenavComponent implements AfterViewInit, OnDestroy {
 
     constructor(private locationService: LocationService) { }
 
@@ -24,6 +24,7 @@ import { TabColors } from '../colors';
     }];
 
     private currentLocation = null;
+    private locationSubscription = null;
 
     updateTabBackgroundColor(tabId, on): void {
         let node = document.getElementById(`location${tabId}`);
@@ -38,6 +39,11 @@ import { TabColors } from '../colors';
             this.updateTabBackgroundColor(newLocation, true);
             this.currentLocation = newLocation;
         })
+    }
+
+    ngOnDestroy(): void {
+        if(this.locationSubscription)
+            this.locationSubscription.unsubscribe();
     }
 
 }

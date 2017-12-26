@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { LocationService } from '../Services/location.service';
+
+import { Section } from '../Section';
 
 import { Locations } from '../enums';
 
@@ -8,14 +10,12 @@ import { Locations } from '../enums';
     selector: 'stats-codeforces',
     templateUrl: 'statsCodeforces.html',
     styleUrls: ['statsCodeforces.css']
-}) export class StatsCodeforces implements OnInit {
+}) export class StatsCodeforces extends Section {
 
     public sectionTitle = 'Estatísticas Codeforces';
 
-    constructor(private locationService: LocationService) { }
-
-    ngOnInit(): void {
-        this.locationService.setLocation(Locations.CODEFORCES);
+    constructor(private locationService: LocationService) {
+        super(locationService, Locations.CODEFORCES);
     }
 
 }
