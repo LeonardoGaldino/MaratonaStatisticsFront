@@ -10,6 +10,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './SidenavComponent/sidenavComponent';
 import { HomeComponent } from './HomeComponent/homeComponent';
+import { HomeCardComponent } from './HomeComponent/HomeCardComponent/homeCardComponent';
 import { StatsCodeforces } from './StatsCodeforces/statsCodeforces';
 import { routes } from './app.routes';
 
@@ -25,6 +26,7 @@ import { LocationService } from './Services/location.service';
     AppComponent,
     SidenavComponent,
     HomeComponent,
+    HomeCardComponent,
     StatsCodeforces,
     RatingComparisonCF,
     CompetitorComparisonCF

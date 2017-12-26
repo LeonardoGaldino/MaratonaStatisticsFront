@@ -12,10 +12,8 @@ import { Locations } from '../enums';
     styleUrls: ['statsCodeforces.css']
 }) export class StatsCodeforces extends Section {
 
-    public sectionTitle = 'Estatísticas Codeforces';
-
     constructor(private locationService: LocationService) {
-        super(locationService, Locations.CODEFORCES);
+        super(locationService, Locations.CODEFORCES, 'Estatísticas Codeforces');
     }
 
 }

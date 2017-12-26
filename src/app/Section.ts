@@ -2,11 +2,14 @@ import { LocationService } from './Services/location.service';
 
 export class Section {
 
-    private location
+    public sectionTitle;
 
-    constructor(private locationService: LocationService, location) {
+    private location;
+
+    constructor(locationService, location, title) {
         this.location = location;
-        this.locationService.setLocation(this.location);
+        this.sectionTitle = title;
+        locationService.setLocation(this.location);
     }
 
 }

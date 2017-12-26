@@ -2,9 +2,8 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 
 import { LocationService } from '../Services/location.service';
 
-import { Locations } from '../enums';
+import { Locations, IconTypes } from '../enums';
 
-import { Utils } from '../utils';
 import { TabColors } from '../colors';
 
 @Component ({
@@ -17,10 +16,14 @@ import { TabColors } from '../colors';
 
     public navigationLinks = [{
        'url': '',
-       'displayName': 'Início' 
+       'displayName': 'Início',
+       'iconName': 'home',
+       'iconType': IconTypes.MATERIAL_ICONS
     }, {
         'url': 'stats/codeforces',
-        'displayName': 'Codeforces'
+        'displayName': 'Codeforces',
+        'iconName': 'codeforces_icon.png',
+        'iconType': IconTypes.ASSET
     }];
 
     private currentLocation = null;

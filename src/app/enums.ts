@@ -8,3 +8,9 @@ export enum Locations {
     CODEFORCES,
     CODEPIT
 }
+
+export enum IconTypes {
+    NONE = 0,
+    MATERIAL_ICONS,
+    ASSET
+}

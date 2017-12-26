@@ -12,3 +12,7 @@ mat-sidenav {
 #codepitFuture:hover {
     cursor: not-allowed;
 }
+
+.icon-div {
+    display: inline;
+}

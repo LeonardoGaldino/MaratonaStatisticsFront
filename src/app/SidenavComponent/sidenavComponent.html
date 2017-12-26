@@ -1,10 +1,15 @@
 <mat-sidenav-container>
     <mat-sidenav position="start" opened disableClose fixedInViewport>
         <a *ngFor="let link of navigationLinks; let idx = index;" id="location{{idx}}" [routerLink]="link.url" mat-button class="sidenav-link">
-            {{ link.displayName }}
+            {{link.displayName}}
+            <mat-icon *ngIf="link.iconType==1">
+                {{link.iconName}}
+            </mat-icon>
+
+            <img *ngIf="link.iconType==2" src="./assets/{{link.iconName}}" height="20" />
         </a>
         <a id="codepitFuture" mat-button class="sidenav-link">
-            Codepit
+            Codepit <img src="./assets/codepit_icon.png" height="20">
         </a> 
     </mat-sidenav>
 </mat-sidenav-container>

@@ -8,5 +8,7 @@ export const TabColors = {
 export const ChartColors = [
     '#734488', '#492645','#9FEBEB', 
     '#78BBE6', '#1B435D','#302939', 
-    '#50595C', '#E99B9B', '#FFD8D8'
+    '#50595C', '#E99B9B', '#FFD8D8',
+    '#FFA500', '#00FF00', '#FF0000',
+    '#FFFFFF'
 ];
