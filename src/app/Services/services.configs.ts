@@ -1,10 +1,10 @@
 export const API_ROUTES = {
-    'allCompetitors': 'http://localhost:8000/api/competitors',
+    'allCompetitors': 'http://67.207.87.198:8001/api/competitors',
     'singleCompetitor': (handle) => {
-        return `http://localhost:8000/api/competitors/${handle}`;
+        return `http://67.207.87.198:8001/api/competitors/${handle}`;
     },
-    'allRatings': 'http://localhost:8000/api/ratings',
+    'allRatings': 'http://67.207.87.198:8001/api/ratings',
     'competitorRatings': (handle) => {
-        return `http://localhost:8000/api/ratings/${handle}`;
+        return `http://67.207.87.198:8001/api/ratings/${handle}`;
     }
 }
