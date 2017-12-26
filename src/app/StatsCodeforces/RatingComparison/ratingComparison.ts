@@ -83,7 +83,8 @@ import { ChartColors } from '../../colors';
                 }
             });
             return {
-                'label': compData.handle,
+                label: compData.handle,
+                pointRadius: 5,
                 borderColor: ChartColors[((idx)%ChartColors.length)],
                 fill: false,
                 data: data

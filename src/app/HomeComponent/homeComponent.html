@@ -2,12 +2,8 @@
     <h1 id="home-title">
         {{sectionTitle}}
     </h1>
-    <div class="home-cards-container">
-
-        <home-card-component *ngFor="let card of cards" [cardTitleText]="card.cardTitleText"
-        [cardContentText]="card.cardContentText" [cardDate]="card.cardDate">
-        </home-card-component>
-
-    </div>
+    <home-card-component *ngFor="let card of cards" [cardTitleText]="card.cardTitleText"
+    [cardContentText]="card.cardContentText" [cardDate]="card.cardDate">
+    </home-card-component>
 
 </div>

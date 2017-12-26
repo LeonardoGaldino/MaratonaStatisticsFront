@@ -1,4 +1,4 @@
-.home-cards-container {
+.home-card-container {
     position: relative; 
     width: calc(100vw - 280px);
 }

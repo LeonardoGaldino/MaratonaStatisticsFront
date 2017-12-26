@@ -1,12 +1,10 @@
-export const API_URL = 'http://localhost:8000';
-
 export const API_ROUTES = {
-    'allCompetitors': API_URL + '/api/competitors',
+    'allCompetitors': 'http://localhost:8000/api/competitors',
     'singleCompetitor': (handle) => {
-        return `${this.API_ROUTES.allCompetitors}/${handle}`;
+        return `http://localhost:8000/api/competitors/${handle}`;
     },
-    'allRatings': API_URL + '/api/ratings',
+    'allRatings': 'http://localhost:8000/api/ratings',
     'competitorRatings': (handle) => {
-        return `${this.API_ROUTES.allRatings}/${handle}`;
+        return `http://localhost:8000/api/ratings/${handle}`;
     }
 }
