@@ -16,6 +16,7 @@ import { routes } from './app.routes';
 
 import { RatingComparisonCF } from './StatsCodeforces/RatingComparison/ratingComparison';
 import { CompetitorComparisonCF } from './StatsCodeforces/CompetitorComparison/competitorComparison';
+import { ParticipationComparisonCF } from './StatsCodeforces/ParticipationComparison/participationComparison';
 
 import { APIService } from './Services/api.service';
 import { DataRepository } from './Services/data.repository';
@@ -29,7 +30,8 @@ import { LocationService } from './Services/location.service';
     HomeCardComponent,
     StatsCodeforces,
     RatingComparisonCF,
-    CompetitorComparisonCF
+    CompetitorComparisonCF,
+    ParticipationComparisonCF
   ],
   imports: [
     BrowserModule,

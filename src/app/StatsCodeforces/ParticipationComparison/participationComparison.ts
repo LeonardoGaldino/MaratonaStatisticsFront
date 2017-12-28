@@ -6,15 +6,15 @@ import { Chart } from 'chart.js';
 import { ChartColors } from '../../colors';
 
 @Component ({
-    selector: 'competitor-comparison-cf',
-    templateUrl: 'competitorComparison.html',
-    styleUrls: ['competitorComparison.css']
-}) export class CompetitorComparisonCF implements OnInit {
+    selector: 'participation-comparison-cf',
+    templateUrl: 'participationComparison.html',
+    styleUrls: ['participationComparison.css']
+}) export class ParticipationComparisonCF implements OnInit {
 
-    public componentTitle = 'Competidores Codeforces';
-    public canvasId = 'cf-competitors-canvas';
+    public componentTitle = 'Participações Codeforces';
+    public canvasId = 'cf-participation-canvas';
 
-    private data;
+    private data = [];
     private chart;
 
     constructor(private dataRepo: DataRepository) { }
@@ -27,13 +27,13 @@ import { ChartColors } from '../../colors';
             this.chart.destroy();
 
         this.data.sort( (comp1, comp2) => {
-            return (comp1.rating - comp2.rating);
+            return (comp1.participations - comp2.participations);
         });
 
         let dataSet = this.data.map( (competitor, idx) => {
             return {
                 label: competitor.handle,
-                data: [competitor.rating],
+                data: [competitor.participations],
                 backgroundColor: ChartColors[(idx%ChartColors.length)],
                 hoverBackgroundColor: ChartColors[(idx%ChartColors.length)]
             }
@@ -49,8 +49,11 @@ import { ChartColors } from '../../colors';
 
     async fetchData() {
         let competitors: any = await this.dataRepo.getCompetitors();
-        this.data = competitors;
-        this.buildChart();
+        competitors.forEach( async (comp) => {
+            let participations: any = await this.dataRepo.getCompetitorParticipations(comp.handle);
+            this.data.push(participations);
+            this.buildChart();
+        });
     }
 
     ngOnInit() {
