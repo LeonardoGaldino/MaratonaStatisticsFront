@@ -42,4 +42,19 @@ export class DataRepository {
         return data;
     }
 
+    public async getCompetitorParticipations(handle) {
+        if(this.competitorRatingsStatus[handle] == DataStatus.READY) {
+            return {
+                participations: this.competitorRatings[handle].data.length,
+                handle: handle
+            };
+        }
+        let data = await this.API.getCompetitorRatings(handle);
+        this.saveCompetitorRatings(handle, data);
+        return {
+            participations: data.data.length,
+            handle: handle
+        };
+    }
+
 }
