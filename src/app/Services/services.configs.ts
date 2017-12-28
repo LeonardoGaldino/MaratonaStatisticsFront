@@ -1,4 +1,4 @@
-let API_URL = 'http://localhost:8000/api'; 
+let API_URL = 'http://67.207.87.198:8001/api'; 
 
 let API_ROUTES = {
     'allCompetitors': `${API_URL}/competitors`,
